@@ -1,0 +1,371 @@
+1244  execve("./mmfs", ["./mmfs", "sync", "data/sync.bin"], 0x7ffd0781e6c8 /* 27 vars */) = 0
+1244  brk(NULL)                         = 0x636e789b9000
+1244  mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f5a9c424000
+1244  access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+1244  openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+1244  fstat(3, {st_mode=S_IFREG|0644, st_size=26395, ...}) = 0
+1244  mmap(NULL, 26395, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f5a9c41d000
+1244  close(3)                          = 0
+1244  openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+1244  read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\220\243\2\0\0\0\0\0"..., 832) = 832
+1244  pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+1244  fstat(3, {st_mode=S_IFREG|0755, st_size=2125328, ...}) = 0
+1244  pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+1244  mmap(NULL, 2170256, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5a9c200000
+1244  mmap(0x7f5a9c228000, 1605632, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7f5a9c228000
+1244  mmap(0x7f5a9c3b0000, 323584, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1b0000) = 0x7f5a9c3b0000
+1244  mmap(0x7f5a9c3ff000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1fe000) = 0x7f5a9c3ff000
+1244  mmap(0x7f5a9c405000, 52624, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f5a9c405000
+1244  close(3)                          = 0
+1244  mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f5a9c41a000
+1244  arch_prctl(ARCH_SET_FS, 0x7f5a9c41a740) = 0
+1244  set_tid_address(0x7f5a9c41aa10)   = 1244
+1244  set_robust_list(0x7f5a9c41aa20, 24) = 0
+1244  rseq(0x7f5a9c41b060, 0x20, 0, 0x53053053) = 0
+1244  mprotect(0x7f5a9c3ff000, 16384, PROT_READ) = 0
+1244  mprotect(0x636e59cdf000, 4096, PROT_READ) = 0
+1244  mprotect(0x7f5a9c464000, 8192, PROT_READ) = 0
+1244  prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+1244  munmap(0x7f5a9c41d000, 26395)     = 0
+1244  openat(AT_FDCWD, "data/sync.bin", O_RDWR|O_CREAT|O_TRUNC, 0666) = 3
+1244  ftruncate(3, 40)                  = 0
+1244  mmap(NULL, 40, PROT_READ|PROT_WRITE, MAP_SHARED, 3, 0) = 0x7f5a9c423000
+1244  fstat(1, {st_mode=S_IFCHR|0600, st_rdev=makedev(0x88, 0), ...}) = 0
+1244  getrandom("\x2e\xb1\x69\x93\xb5\x4a\xdd\x77", 8, GRND_NONBLOCK) = 8
+1244  brk(NULL)                         = 0x636e789b9000
+1244  brk(0x636e789da000)               = 0x636e789da000
+1244  write(1, "\n", 1)                 = 1
+1244  write(1, "========== SYNCHRONIZED DEMO ==="..., 40) = 40
+1244  write(1, "Two processes update the same sh"..., 46) = 46
+1244  write(1, "A process-shared POSIX semaphore"..., 64) = 64
+1244  write(1, "\n", 1)                 = 1
+1244  clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f5a9c41aa10) = 1245
+1245  set_robust_list(0x7f5a9c41aa20, 24 <unfinished ...>
+1244  clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD <unfinished ...>
+1245  <... set_robust_list resumed>)    = 0
+1244  <... clone resumed>, child_tidptr=0x7f5a9c41aa10) = 1246
+1246  set_robust_list(0x7f5a9c41aa20, 24 <unfinished ...>
+1244  wait4(1245,  <unfinished ...>
+1246  <... set_robust_list resumed>)    = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1246  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1245  <... futex resumed>)              = 0
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1 <unfinished ...>
+1245  futex(0x7f5a9c423008, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+1246  <... futex resumed>)              = 0
+1245  <... futex resumed>)              = -1 EAGAIN (Resource temporarily unavailable)
+1246  futex(0x7f5a9c423008, FUTEX_WAKE, 1) = 0
+1245  munmap(0x7f5a9c423000, 40)        = 0
+1245  close(3)                          = 0
+1245  exit_group(0)                     = ?
+1245  +++ exited with 0 +++
+1244  <... wait4 resumed>NULL, 0, NULL) = 1245
+1244  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=1245, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+1244  wait4(1246,  <unfinished ...>
+1246  munmap(0x7f5a9c423000, 40)        = 0
+1246  close(3)                          = 0
+1246  exit_group(0)                     = ?
+1246  +++ exited with 0 +++
+1244  <... wait4 resumed>NULL, 0, NULL) = 1246
+1244  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=1246, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+1244  write(1, "Expected counter: 200000\n", 25) = 25
+1244  write(1, "Actual counter:   200000\n", 25) = 25
+1244  write(1, "\n", 1)                 = 1
+1244  write(1, "Synchronization successful.\n", 28) = 28
+1244  write(1, "The semaphore protected the read"..., 57) = 57
+1244  munmap(0x7f5a9c423000, 40)        = 0
+1244  close(3)                          = 0
+1244  exit_group(0)                     = ?
+1244  +++ exited with 0 +++
